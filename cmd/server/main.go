@@ -23,6 +23,12 @@ func main() {
 
 	// load config
 	cfg := config.Load()
+
+	// Ensure colon at the beginning of server address (deployment-safe)
+	if cfg.ServerAddress[0] != ':' {
+		cfg.ServerAddress = ":" + cfg.ServerAddress
+	}
+
 	log.Printf("Server will listen on %s", cfg.ServerAddress)
 
 	// setup api client
