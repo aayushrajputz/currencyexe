@@ -53,6 +53,12 @@ func main() {
 	router := mux.NewRouter()
 	setupRoutes(router, healthHandler, exchangeHandler)
 
+	// add root path handler to prevent 404
+	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("Exchange Rate Service is running! Visit /health for status."))
+	}).Methods("GET")
+
 	// http server config
 	srv := &http.Server{
 		Addr:         cfg.ServerAddress,
