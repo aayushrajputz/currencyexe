@@ -2,8 +2,8 @@
 
 A Go backend service for real-time currency exchange rates, following clean architecture principles.
 Data is sourced from ExchangeRate-API.com with caching for speed and reliability.
-curl https://currencyexe.onrender.com/health
-curl "https://currencyexe.onrender.com/convert?from=USD&to=INR&amount=100"
+https://currencyexe.onrender.com/health
+https://currencyexe.onrender.com/convert?from=USD&to=INR&amount=100
 ## 📁 Project Structure
 
 ```
